@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+
+class Inscripcion {
+  -int id
+  -Materia[] materias_inscriptas
+  -Alumno inscripto
+
+  +void setInscripto(Alumno inscripto)
+  +void setMateriasInscriptas(Materia[] materias)
+  +boolean aprobada()
+}
+
+class Alumno {
+  -String nombre
+  -String legajo
+  -Materia[] materias_aprobadas
+
+  +Materia[] getMateriasAprobadas()
+  +boolean puedeCursar(Materia materia)
+}
+
+class Materia {
+  -int id
+  -String nombre
+  -Materia[] correlativas
+
+  +Materia[] getCorrelativas()
+}
+
+Materia --> "*" Materia
+Alumno --> "*" Materia
+Inscripcion --> "*" Materia
+Inscripcion --> Alumno
+
+@enduml
