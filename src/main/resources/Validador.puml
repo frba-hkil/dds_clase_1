@@ -3,13 +3,11 @@
 skinparam classAttributeIconSize 0
 
 class Inscripcion {
-  -int id
-  -Materia[] materias_inscriptas
-  -Alumno inscripto
+  -id: Integer
+  -materias_inscriptas: Materia[]
+  -inscripto: Alumno
 
-  +void setInscripto(Alumno inscripto)
-  +void setMateriasInscriptas(Materia[] materias)
-  +boolean aprobada()
+  +aprobada(): Boolean
 }
 
 class Alumno {
@@ -17,8 +15,7 @@ class Alumno {
   -String legajo
   -Materia[] materias_aprobadas
 
-  +Materia[] getMateriasAprobadas()
-  +boolean puedeCursar(Materia materia)
+  +puedeCursar(Materia materia): Boolean
 }
 
 class Materia {
@@ -26,7 +23,7 @@ class Materia {
   -String nombre
   -Materia[] correlativas
 
-  +Materia[] getCorrelativas()
+  +getCorrelativas(): Materia[]
 }
 
 Materia --> "*" Materia
